@@ -1,0 +1,23 @@
+version: '3'
+services:
+  python3:
+    image: idein/chainer:6.2.0
+    container_name: hand_detector_pycharm
+    volumes:
+      - ../../:/work
+      - ~/dataset:/root/dataset
+  pycharm:
+    build: ../../
+    container_name: hand_pycharm
+    volumes:
+      - ../../:/work
+      - ~/dataset:/root/dataset
+  jupyter:
+    build: ./jupyter
+    container_name: hand_detector_jupyter
+    volumes:
+      - ../../:/work
+      - ~/dataset:/root/dataset
+    ports:
+      - "8888:8888"
+    command: jupyter notebook --notebook-dir /work --NotebookApp.token='' --ip=0.0.0.0 --allow-root

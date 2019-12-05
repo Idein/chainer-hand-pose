@@ -1,0 +1,49 @@
+version: '3'
+services:
+  train_detector:
+    image: idein/chainer:6.2.0
+    container_name: train_detector
+    volumes:
+      - ./:/work
+      - ~/dataset:/root/dataset
+    working_dir: "/work"
+    command: bash -c "cat config_detector.ini && python3 train_detector.py --config_path config_detector.ini"
+
+  train_pose:
+    image: idein/chainer:6.2.0
+    container_name: train_pose
+    volumes:
+      - ./:/work
+      - ~/dataset:/root/dataset
+    working_dir: "/work"
+    command: bash -c "cat config_pose.ini && python3 train_pose.py --config-path config_pose.ini"
+
+  # docker-compose run -e DISPLAY=$(hostname):0 predict_detector
+  predict_detector:
+    image: idein/chainer:6.2.0
+    container_name: predict_detector
+    volumes:
+      - ~/.Xauthority:/root/.Xauthority
+      - ./:/work
+      - ~/dataset:/root/dataset
+      - ./../experiments/test_images:/test_images
+    working_dir: "/work"
+    # multiple formatting
+    command: >
+      python3 predict_detector.py 
+      --model_path trained/detector/bestmodel.npz 
+      --config_path trained/detector/config.ini 
+      --img_path /test_images 
+      --out_path trained/output
+    
+      
+  # docker-compose run -e DISPLAY=$(hostname):0 predict_pose
+  predict_pose:
+    image: idein/chainer:6.2.0
+    container_name: predict_pose
+    volumes:
+      - ~/.Xauthority:/root/.Xauthority
+      - ./:/work
+      - ~/dataset:/root/dataset
+    working_dir: "/work"
+    command: bash -c "python3 predict_pose.py --trained trained"
