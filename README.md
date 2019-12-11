@@ -42,7 +42,7 @@ $ tree -L 2 -d
 
 ```
 $ cd /path/to/your/working/directory
-$ git clone git@github.com:Idein/chainer-hand-pose.git
+$ git clone https://github.com/Idein/chainer-hand-pose.git
 ```
 
 ### Prepare Docker & NVIDIA Container Toolkit
