@@ -66,7 +66,12 @@ dataset by yourself. See [docs/dataset_preparation.md](docs/dataset_preparation.
 
 ## Run demo (naive implementation)
 
+- After training Detector and PoseEstimator, these results will be stored in `result` directory. We provide demo script to run inference with them.
+- You can also use our pre-trained model. See [our release page](https://github.com/Idein/chainer-hand-pose/releases/tag/model).
+
+
 ### Run without docker
+
 - Just run
 
 ```
