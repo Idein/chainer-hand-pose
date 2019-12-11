@@ -93,23 +93,6 @@ After finished building the docker image, just run `src/run_demo.sh`
 
 ```
 $ cd src
-$ cat run_demo.sh
-CMDNAME=`basename $0`
-BASEMODELDIR=$(pwd)/../result
-
-xhost +local:docker
-docker run --rm \
---gpus all \
--e DISPLAY=$DISPLAY \
--v /tmp/.X11-unix/:/tmp/.X11-unix \
--v $(pwd):/work \
--v $BASEMODELDIR:/models \
---device=/dev/video0:/dev/video0 \
--w /work \
-hand_demo:latest python3 demo.py \
-/models/release \
-/models/release
-xhost -local:docker
 $ bash run_demo.sh
 ```
 
