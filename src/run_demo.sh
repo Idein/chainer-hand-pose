@@ -2,7 +2,8 @@
 # You need build docker image from Dockerfile located at
 # /path/to/repository/experiments/docker/gpu
 
-docker build -t hand_demo ../experiments/docker/demo/gpu/
+# uncomment the next line to build docker image automatically
+# docker build -t hand_demo ../experiments/docker/demo/gpu/
 
 CMDNAME=`basename $0`
 BASEMODELDIR=$(pwd)/../result

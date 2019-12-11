@@ -56,17 +56,22 @@ $ git clone git@github.com:Idein/chainer-hand-pose.git
 dataset by yourself. See [docs/dataset_preparation.md](docs/dataset_preparation.md) to prepare dataset on your computer for our purpose.
 
 
-## Train/Predict hand detector
+## Train/Predict Detector
 
 - See [docs/detector.md](docs/detector.md)
 
-## Train/Predict hand pose estimation
+## Train/Predict PoseEstimator
 
 - See [docs/pose.md](docs/pose.md)
 
 ## Run demo (naive implementation)
 
+- After training Detector and PoseEstimator, these results will be stored in `result` directory. We provide demo script to run inference with them.
+- You can also use our pre-trained model. See [our release page](https://github.com/Idein/chainer-hand-pose/releases/tag/model).
+
+
 ### Run without docker
+
 - Just run
 
 ```
@@ -88,23 +93,6 @@ After finished building the docker image, just run `src/run_demo.sh`
 
 ```
 $ cd src
-$ cat run_demo.sh
-CMDNAME=`basename $0`
-BASEMODELDIR=$(pwd)/../result
-
-xhost +local:docker
-docker run --rm \
---gpus all \
--e DISPLAY=$DISPLAY \
--v /tmp/.X11-unix/:/tmp/.X11-unix \
--v $(pwd):/work \
--v $BASEMODELDIR:/models \
---device=/dev/video0:/dev/video0 \
--w /work \
-hand_demo:latest python3 demo.py \
-/models/release \
-/models/release
-xhost -local:docker
 $ bash run_demo.sh
 ```
 
