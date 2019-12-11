@@ -56,11 +56,11 @@ $ git clone git@github.com:Idein/chainer-hand-pose.git
 dataset by yourself. See [docs/dataset_preparation.md](docs/dataset_preparation.md) to prepare dataset on your computer for our purpose.
 
 
-## Train/Predict hand detector
+## Train/Predict Detector
 
 - See [docs/detector.md](docs/detector.md)
 
-## Train/Predict hand pose estimation
+## Train/Predict PoseEstimator
 
 - See [docs/pose.md](docs/pose.md)
 
