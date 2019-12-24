@@ -1,9 +1,8 @@
 # chainer-hand-pose
 
-- An Chainer [[12]](#Chainer) implementation of 3D hand pose estimation.
+- This is a Chainer [[12]](#Chainer) implementation of 3D hand pose estimation.
 
 ![](docs/imgs/demo.png)
-
 
 - Our algorithm adopts the top-down pipeline that consists of `Detector` and `PoseEstimator` namely:
   - Detector: MobileNetV2 [[9]](#MV2) base SSD (insize=224x224) [[4]](#SSD).
@@ -120,4 +119,3 @@ See [src/demo/README.md](src/demo)
 - <a id="STB">[14]</a> Zhang, Jiawei et al. “3D Hand Pose Tracking and Estimation Using Stereo Matching.” ArXiv (2016).
 - <a id="RHD">[15]</a> Zimmermann, Christian and Thomas Brox. “Learning to Estimate 3D Hand Pose from Single RGB Images.” ICCV (2017).
 - <a id="Frei">[16]</a> Zimmermann, Christian et al. “FreiHAND: A Dataset for Markerless Capture of Hand Pose and Shape from Single RGB Images.” ArXiv (2019).
-
